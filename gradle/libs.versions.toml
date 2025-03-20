@@ -2,6 +2,7 @@
 kotlin = "2.1.10"
 
 [libraries]
+config4k = "io.github.config4k:config4k:0.7.0"
 kotlin-logging-jvm = "io.github.oshai:kotlin-logging-jvm:7.0.5"
 
 [plugins]
