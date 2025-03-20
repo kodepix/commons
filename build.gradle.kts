@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    api(libs.kotlin.logging.jvm)
     testImplementation(kotlin("test"))
 }
 

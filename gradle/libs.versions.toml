@@ -1,6 +1,9 @@
 [versions]
 kotlin = "2.1.10"
 
+[libraries]
+kotlin-logging-jvm = "io.github.oshai:kotlin-logging-jvm:7.0.5"
+
 [plugins]
 ben-manes-versions = "com.github.ben-manes.versions:0.52.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
