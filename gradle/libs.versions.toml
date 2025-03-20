@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 
 [libraries]
 config4k = "io.github.config4k:config4k:0.7.0"

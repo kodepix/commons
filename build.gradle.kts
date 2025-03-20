@@ -18,7 +18,6 @@ repositories {
 dependencies {
     api(libs.kotlin.logging.jvm)
     implementation(libs.config4k)
-    testImplementation(kotlin("test"))
 }
 
 kotlin { jvmToolchain(21) }

@@ -4,16 +4,29 @@
 
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Useful functions and tools.
 
-[![Kotlin](https://img.shields.io/badge/kotlin-2.1.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.1.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
 ---
 <br>
 
+* [Installation](#installation)
 * [Development](#development)
     * [Getting started](#getting-started)
     * [Gradle wrapper generation](#gradle-wrapper-generation)
     * [Versions update](#versions-update)
+
+## Installation
+
+```kotlin
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("io.github.kodepix:commons:1.0")
+}
+```
 
 ## Development
 
