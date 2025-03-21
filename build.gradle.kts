@@ -1,4 +1,5 @@
 import com.github.benmanes.gradle.versions.updates.*
+import com.vanniktech.maven.publish.SonatypeHost.Companion.CENTRAL_PORTAL
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
@@ -6,11 +7,13 @@ plugins {
     alias(libs.plugins.ben.manes.versions)
     alias(libs.plugins.ktlint)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.vanniktech.maven.publish)
+    signing
 }
 
 description = "Useful functions and tools."
 group = "io.github.kodepix"
-version = "1.0-SNAPSHOT"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -26,6 +29,44 @@ kotlin { jvmToolchain(21) }
 ktlint {
     verbose = true
     outputToConsole = true
+}
+
+mavenPublishing {
+    publishToMavenCentral(CENTRAL_PORTAL, automaticRelease = true)
+    signAllPublications()
+
+    pom {
+        name = "Commons Library"
+        description = project.description
+        inceptionYear = "2025"
+        url = "https://github.com/kodepix/commons/"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+                distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "kodepix"
+                name = "kodepix"
+                url = "https://github.com/kodepix/"
+            }
+        }
+        scm {
+            url = "https://github.com/kodepix/commons/"
+            connection = "scm:git:git://github.com/kodepix/commons.git"
+            developerConnection = "scm:git:git://github.com/kodepix/commons.git"
+        }
+    }
+}
+
+signing {
+    // Used while error "invalid header encountered" is not fixed (https://github.com/vanniktech/gradle-maven-publish-plugin/issues/900)
+    val signingPassword: String? by project
+    val signingSecretKeyRingFile: String? by project
+    useInMemoryPgpKeys(files(signingSecretKeyRingFile).single().readText(), signingPassword)
 }
 
 tasks {
