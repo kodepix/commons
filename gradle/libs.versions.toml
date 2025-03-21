@@ -7,6 +7,7 @@ kotlin-logging-jvm = "io.github.oshai:kotlin-logging-jvm:7.0.5"
 
 [plugins]
 ben-manes-versions = "com.github.ben-manes.versions:0.52.0"
+dokka = "org.jetbrains.dokka:2.0.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktlint = "org.jlleitschuh.gradle.ktlint:12.2.0"
 version-catalog-update = "nl.littlerobots.version-catalog-update:0.8.5"

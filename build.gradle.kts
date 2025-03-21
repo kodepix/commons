@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.ben.manes.versions)
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.dokka)
 }
 
 description = "Useful functions and tools."
