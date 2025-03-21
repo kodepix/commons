@@ -37,3 +37,12 @@ internal fun string22Sample() {
     val uuid = uuid("6c7ec513-a7b0-4830-b955-5ad537e9bb01")
     assert(uuid.string22 == "bH7FE6ewSDC5VVrVN-m7AQ")
 }
+
+
+internal fun buildStringSample() {
+
+    val string = buildString {
+        +"first"
+        +"second"
+    }
+}
