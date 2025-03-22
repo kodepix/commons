@@ -24,6 +24,8 @@ dependencies {
     api(libs.kotlinx.coroutines.slf4j)
     api(libs.kotlin.logging.jvm)
     api(libs.config4k)
+
+    testImplementation(libs.bundles.testing)
 }
 
 kotlin { jvmToolchain(21) }

@@ -3,6 +3,7 @@
 package io.github.kodepix.samples
 
 import io.github.kodepix.*
+import io.github.oshai.kotlinlogging.Level.*
 
 
 internal fun idSample() {
@@ -21,6 +22,10 @@ internal fun castSample() {
 
 internal fun loggerSample() {
     val log by logger()
+}
+
+internal fun statefulLoggerSample() {
+    val log by statefulLogger(onceLogLevels = listOf(ERROR, WARN), successLogLevel = INFO)
 }
 
 

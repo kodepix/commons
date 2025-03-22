@@ -1,5 +1,6 @@
 package io.github.kodepix
 
+import io.github.oshai.kotlinlogging.Level.*
 import kotlinx.coroutines.*
 import kotlin.time.Duration.Companion.seconds
 
@@ -63,11 +64,15 @@ inline fun <reified T> Any?.cast(): T = this as T
  */
 fun runUntilSuccess(action: () -> Unit) = runBlocking {
 
+    val log by statefulLogger(onceLogLevels = listOf(WARN), successLogLevel = INFO)
+    val caller = Thread.currentThread().stackTrace[12].methodName
+
     while (isActive) {
         try {
             action()
             break
         } catch (e: Exception) {
+            log.warn { "$caller: ${e.message}" }
             delay(1.seconds)
         }
     }
