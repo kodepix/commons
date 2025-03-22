@@ -20,8 +20,10 @@ repositories {
 }
 
 dependencies {
+    api(libs.kotlinx.coroutines.core)
+    api(libs.kotlinx.coroutines.slf4j)
     api(libs.kotlin.logging.jvm)
-    implementation(libs.config4k)
+    api(libs.config4k)
 }
 
 kotlin { jvmToolchain(21) }

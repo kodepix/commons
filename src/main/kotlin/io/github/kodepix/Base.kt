@@ -1,5 +1,8 @@
 package io.github.kodepix
 
+import kotlinx.coroutines.*
+import kotlin.time.Duration.Companion.seconds
+
 
 /**
  * Int based identifier.
@@ -39,3 +42,33 @@ value class Id(val value: Int) {
  * @sample io.github.kodepix.samples.castSample
  */
 inline fun <reified T> Any?.cast(): T = this as T
+
+
+/**
+ * Executes [action] ignoring exceptions until success.
+ *
+ * Delayed 1 sec if exceptions occurs.
+ *
+ * Usage:
+ *
+ * ```kotlin
+ * runUntilSuccess {
+ *     // Database connecting, for example.
+ * }
+ * ```
+ *
+ * @param action action
+ *
+ * @sample io.github.kodepix.samples.runUntilSuccessSample
+ */
+fun runUntilSuccess(action: () -> Unit) = runBlocking {
+
+    while (isActive) {
+        try {
+            action()
+            break
+        } catch (e: Exception) {
+            delay(1.seconds)
+        }
+    }
+}

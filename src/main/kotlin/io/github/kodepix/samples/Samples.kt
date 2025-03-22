@@ -46,3 +46,11 @@ internal fun buildStringSample() {
         +"second"
     }
 }
+
+
+internal fun runUntilSuccessSample() {
+
+    runUntilSuccess {
+        // Database connecting, for example.
+    }
+}
