@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package io.github.kodepix
 
 import io.github.oshai.kotlinlogging.Level.*
@@ -77,3 +79,9 @@ fun runUntilSuccess(action: () -> Unit) = runBlocking {
         }
     }
 }
+
+
+/**
+ * [ByteArray] example. Useful for documentation purposes.
+ */
+val byteArrayExample get() = kotlin.random.Random.nextBytes(10)
