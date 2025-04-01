@@ -4,6 +4,8 @@ package io.github.kodepix.samples
 
 import io.github.kodepix.*
 import io.github.oshai.kotlinlogging.Level.*
+import kotlinx.coroutines.*
+import kotlin.time.Duration.Companion.seconds
 
 
 internal fun idSample() {
@@ -57,5 +59,15 @@ internal fun runUntilSuccessSample() {
 
     runUntilSuccess {
         // Database connecting, for example.
+    }
+}
+
+
+internal fun doAndDelaySample() {
+
+    runBlocking {
+        doAndDelay(2.seconds) {
+            // Periodical work.
+        }
     }
 }
