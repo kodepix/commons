@@ -71,3 +71,13 @@ internal fun doAndDelaySample() {
         }
     }
 }
+
+
+internal fun launchBackgroundSample() {
+
+    runBlocking {
+        launchBackground {
+            // Background work.
+        }
+    }
+}
