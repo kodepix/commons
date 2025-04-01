@@ -5,6 +5,8 @@
 ###### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Useful functions and tools.
 
 [![Kotlin](https://img.shields.io/badge/kotlin-2.1.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.kodepix/commons)](https://central.sonatype.com/artifact/io.github.kodepix/commons)
+![GitHub](https://img.shields.io/github/license/kodepix/commons)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 
 ---
@@ -24,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.kodepix:commons:1.0")
+    implementation("io.github.kodepix:commons:2.0")
 }
 ```
 
