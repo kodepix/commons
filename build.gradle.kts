@@ -43,7 +43,7 @@ mavenPublishing {
         name = "Commons Library"
         description = project.description
         inceptionYear = "2025"
-        url = "https://github.com/kodepix/commons/"
+        url = "https://github.com/kodepix/${project.name}/"
         licenses {
             license {
                 name = "The Apache License, Version 2.0"
@@ -59,9 +59,9 @@ mavenPublishing {
             }
         }
         scm {
-            url = "https://github.com/kodepix/commons/"
-            connection = "scm:git:git://github.com/kodepix/commons.git"
-            developerConnection = "scm:git:git://github.com/kodepix/commons.git"
+            url = "https://github.com/kodepix/${project.name}/"
+            connection = "scm:git:git://github.com/kodepix/${project.name}.git"
+            developerConnection = "scm:git:git://github.com/kodepix/${project.name}.git"
         }
     }
 }
@@ -83,6 +83,12 @@ tasks {
     runKtlintCheckOverKotlinScripts { dependsOn(runKtlintFormatOverKotlinScripts) }
     runKtlintCheckOverMainSourceSet { dependsOn(runKtlintFormatOverMainSourceSet) }
     runKtlintCheckOverTestSourceSet { dependsOn(runKtlintFormatOverTestSourceSet) }
+}
+
+versionCatalogUpdate {
+    pin {
+        plugins.addAll(libs.plugins.version.catalog.update) // because nl.littlerobots.version-catalog-update:1.0.0 not updates libs versions
+    }
 }
 
 private fun isNonStable(version: String) = run {

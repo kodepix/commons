@@ -27,11 +27,11 @@ import kotlin.time.Duration.Companion.milliseconds
  * @sample io.github.kodepix.samples.launchBackgroundSample
  */
 fun CoroutineScope.launchBackground(restartDelay: Duration = 500.milliseconds, block: suspend CoroutineScope.() -> Unit) =
-    launchBackground(Thread.currentThread().stackTrace[2].methodName, restartDelay, block)
+    launchBackground(Thread.currentThread().stackTrace[3].methodName, restartDelay, block)
 
-private fun CoroutineScope.launchBackground(methodName: String, restartDelay: Duration, block: suspend CoroutineScope.() -> Unit) {
+private fun CoroutineScope.launchBackground(caller: String, restartDelay: Duration, block: suspend CoroutineScope.() -> Unit) {
 
-    log.info { "Task launched: $methodName (background)" }
+    log.info { "Task launched: $caller (background)" }
 
     launch {
         while (isActive)
@@ -42,9 +42,9 @@ private fun CoroutineScope.launchBackground(methodName: String, restartDelay: Du
                     delay(INFINITE)
                 } catch (_: CancellationException) {
                 } catch (e: NullPointerException) {
-                    log.error(e) { "Error in $methodName. Restarting after $restartDelay." }
+                    log.error(e) { "Error in $caller. Restarting after $restartDelay." }
                 } catch (e: Exception) {
-                    log.warn { "Error in $methodName: $e; cause: ${e.cause?.toString()}. Restarting after $restartDelay." }
+                    log.warn { "Error in $caller: $e; cause: ${e.cause?.toString()}. Restarting after $restartDelay." }
                     delay(restartDelay)
                 }
             }
