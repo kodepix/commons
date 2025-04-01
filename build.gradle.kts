@@ -13,7 +13,7 @@ plugins {
 
 description = "Useful functions and tools."
 group = "io.github.kodepix"
-version = "3.0-SNAPSHOT"
+version = "3.0"
 
 repositories {
     mavenCentral()
