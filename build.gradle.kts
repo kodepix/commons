@@ -13,7 +13,7 @@ plugins {
 
 description = "Useful functions and tools."
 group = "io.github.kodepix"
-version = "4.0"
+version = "4.1"
 
 repositories {
     mavenCentral()

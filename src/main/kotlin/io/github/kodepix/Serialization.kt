@@ -32,19 +32,21 @@ fun String.fromJson(clazz: KClass<*>): Any = internalObjectMapper.readValue(this
 
 
 /**
- * Returns created [JsonMapper] instance.
+ * Returns created and configured [JsonMapper] instance.
+ *
+ * [ObjectMapper.configure] called after creation.
  *
  * Usage:
  *
  * ```kotlin
- * val objectMapper = objectMapper {}
+ * val objectMapper = objectMapper()
  * ```
  *
- * @param configure configuration block
+ * @param configure optional configuration block
  *
  * @sample io.github.kodepix.samples.objectMapperSample
  */
-fun objectMapper(configure: JsonMapper.() -> Unit) = jacksonObjectMapper().apply {
+fun objectMapper(configure: JsonMapper.() -> Unit = {}) = jacksonObjectMapper().apply {
     configure()
     configure(this as JsonMapper)
     internalObjectMapper = this
