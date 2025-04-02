@@ -24,6 +24,8 @@ dependencies {
     api(libs.kotlinx.coroutines.slf4j)
     api(libs.kotlin.logging)
     api(libs.config4k)
+    api(libs.jackson.module.kotlin)
+    api(libs.jackson.datatype.jsr310)
 
     testImplementation(libs.bundles.testing)
 }

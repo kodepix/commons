@@ -81,3 +81,9 @@ internal fun launchBackgroundSample() {
         }
     }
 }
+
+
+internal fun objectMapperSample() {
+
+    val objectMapper = objectMapper {}
+}
